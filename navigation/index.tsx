@@ -66,7 +66,13 @@ function RootNavigator() {
 			/>
 			<Stack.Group screenOptions={{ presentation: 'modal' }}>
 				<Stack.Screen name="Modal" component={ModalScreen} />
-				<Stack.Screen name="ChatRoom" component={ChatRoom} />
+				<Stack.Screen
+					name="ChatRoom"
+					component={ChatRoom}
+					options={({ route: { params } }) => ({
+						title: params.user.username,
+					})}
+				/>
 			</Stack.Group>
 		</Stack.Navigator>
 	);

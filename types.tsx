@@ -44,10 +44,7 @@ export type RootTabScreenProps<T extends keyof RootTabParamList> =
 	>;
 
 export type UsersData = {
-	id: number;
-	first_name: string;
-	last_name: string;
-	email: string;
-	gender: string;
-	avatar: string;
+	_id: string;
+	username: string;
+	password: string;
 };

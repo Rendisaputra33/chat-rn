@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { ActivityIndicator, FlatList, StyleSheet, Text } from 'react-native';
 import { View } from '../components/Themed';
-import { RootTabScreenProps } from '../types';
+import { RootTabScreenProps, UsersData } from '../types';
 import datas from '../constants/users';
 import CardFriend from '../components/CardFriends';
 import { useGetRequest } from '../hooks/useRequest';
@@ -11,7 +11,7 @@ export default function TabOneScreen({
 	navigation,
 }: RootTabScreenProps<'TabOne'>) {
 	// make request
-	const { response, error } = useGetRequest('users');
+	const { response, error } = useGetRequest<{ friends: UsersData[] }>('users');
 	let socket = useRef<Socket>();
 	// make effect
 	React.useEffect(() => {
@@ -20,7 +20,7 @@ export default function TabOneScreen({
 	// render element
 	return (
 		<View>
-			{!response && <ActivityIndicator color="blue" />}
+			{!response && <ActivityIndicator color="blue" size="large" />}
 			{error !== null && (
 				<View>
 					<Text>error</Text>
@@ -35,11 +35,11 @@ export default function TabOneScreen({
 							onSelected={() =>
 								navigation.navigate('ChatRoom', { user: data.item })
 							}
+							key={data.item._id}
 							user={data.item}
-							key={Math.random()}
 						/>
 					)}
-					showsVerticalScrollIndicator={false}
+					keyExtractor={(item, index) => item._id}
 				/>
 			)}
 		</View>
