@@ -1,0 +1,131 @@
+export default {
+	users: [
+		{
+			id: 1,
+			first_name: 'Matthiew',
+			last_name: 'Cheavin',
+			email: 'mcheavin0@theglobeandmail.com',
+			gender: 'Polygender',
+			avatar:
+				'https://robohash.org/ducimuserrorconsectetur.png?size=200x200&set=set1',
+		},
+		{
+			id: 2,
+			first_name: 'Kippie',
+			last_name: 'Caldecutt',
+			email: 'kcaldecutt1@yale.edu',
+			gender: 'Male',
+			avatar: 'https://robohash.org/etitaquequam.png?size=200x200&set=set1',
+		},
+		{
+			id: 3,
+			first_name: 'Lucy',
+			last_name: 'Chippindale',
+			email: 'lchippindale2@mail.ru',
+			gender: 'Genderfluid',
+			avatar: 'https://robohash.org/noneaqueest.png?size=200x200&set=set1',
+		},
+		{
+			id: 4,
+			first_name: 'Portia',
+			last_name: 'Stegel',
+			email: 'pstegel3@wp.com',
+			gender: 'Bigender',
+			avatar: 'https://robohash.org/rationebeataeex.png?size=200x200&set=set1',
+		},
+		{
+			id: 5,
+			first_name: 'Rodina',
+			last_name: 'Hedingham',
+			email: 'rhedingham4@illinois.edu',
+			gender: 'Male',
+			avatar: 'https://robohash.org/errorcorruptiaut.png?size=200x200&set=set1',
+		},
+		{
+			id: 6,
+			first_name: 'Avigdor',
+			last_name: 'Beynkn',
+			email: 'abeynkn5@blogtalkradio.com',
+			gender: 'Agender',
+			avatar: 'https://robohash.org/omnisquasinihil.png?size=200x200&set=set1',
+		},
+		{
+			id: 7,
+			first_name: 'Garvin',
+			last_name: 'Hallums',
+			email: 'ghallums6@mtv.com',
+			gender: 'Genderfluid',
+			avatar:
+				'https://robohash.org/quicumquepariatur.png?size=200x200&set=set1',
+		},
+		{
+			id: 8,
+			first_name: 'Leonora',
+			last_name: 'Piggin',
+			email: 'lpiggin7@angelfire.com',
+			gender: 'Agender',
+			avatar:
+				'https://robohash.org/temporibusvelenim.png?size=200x200&set=set1',
+		},
+		{
+			id: 9,
+			first_name: 'Phillip',
+			last_name: 'Babington',
+			email: 'pbabington8@parallels.com',
+			gender: 'Genderfluid',
+			avatar:
+				'https://robohash.org/dolorumautmolestias.png?size=200x200&set=set1',
+		},
+		{
+			id: 10,
+			first_name: 'Galen',
+			last_name: 'De Lascy',
+			email: 'gdelascy9@wikispaces.com',
+			gender: 'Genderqueer',
+			avatar:
+				'https://robohash.org/dignissimosipsumaccusantium.png?size=200x200&set=set1',
+		},
+		{
+			id: 11,
+			first_name: 'Hagen',
+			last_name: 'Rollitt',
+			email: 'hrollitta@nbcnews.com',
+			gender: 'Male',
+			avatar: 'https://robohash.org/quiipsamoptio.png?size=200x200&set=set1',
+		},
+		{
+			id: 12,
+			first_name: 'Franklyn',
+			last_name: 'Leroy',
+			email: 'fleroyb@epa.gov',
+			gender: 'Genderqueer',
+			avatar: 'https://robohash.org/omnisetautem.png?size=200x200&set=set1',
+		},
+		{
+			id: 13,
+			first_name: 'Lenore',
+			last_name: 'Briscoe',
+			email: 'lbriscoec@yolasite.com',
+			gender: 'Genderqueer',
+			avatar: 'https://robohash.org/atautet.png?size=200x200&set=set1',
+		},
+		{
+			id: 14,
+			first_name: 'Adan',
+			last_name: 'Zanettini',
+			email: 'azanettinid@linkedin.com',
+			gender: 'Polygender',
+			avatar:
+				'https://robohash.org/exquaeratdoloremque.png?size=200x200&set=set1',
+		},
+		{
+			id: 15,
+			first_name: 'Britni',
+			last_name: 'Standon',
+			email: 'bstandone@unblog.fr',
+			gender: 'Female',
+			avatar:
+				'https://robohash.org/evenieteumnecessitatibus.png?size=200x200&set=set1',
+		},
+	],
+};
