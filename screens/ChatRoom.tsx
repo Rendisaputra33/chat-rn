@@ -9,7 +9,7 @@ export default function ChatRoom({
 }: RootStackScreenProps<'ChatRoom'>) {
 	return (
 		<View>
-			<Text>Chat Room {user.first_name}</Text>
+			<Text>Chat Room {user.username}</Text>
 		</View>
 	);
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
 const req = axios.create({
-	baseURL: 'http:api-data-movie.herokuapp.com/api/',
+	baseURL: 'http://192.168.1.3:7000/api/',
 });
 
 export const useGetRequest = (url: string) => {

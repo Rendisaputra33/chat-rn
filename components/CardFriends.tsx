@@ -2,10 +2,13 @@ import { useNavigation } from '@react-navigation/core';
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import useColorScheme from '../hooks/useColorScheme';
-import { RootTabParamList, RootTabScreenProps, UsersData } from '../types';
+import faker from 'faker';
 
 interface Extended {
-	user: UsersData;
+	user: {
+		username: string;
+		password: string;
+	};
 	onSelected: Function;
 }
 
@@ -15,7 +18,7 @@ const CardFriend: React.FC<Extended> = ({ user, onSelected }) => {
 		<TouchableOpacity onPress={() => onSelected()}>
 			<View style={styles.wraperCard}>
 				<Image
-					source={{ uri: user.avatar }}
+					source={{ uri: faker.image.avatar() }}
 					style={{
 						...styles.avatar,
 						borderColor: theme === 'dark' ? 'white' : 'black',
@@ -32,7 +35,7 @@ const CardFriend: React.FC<Extended> = ({ user, onSelected }) => {
 								color: theme === 'dark' ? 'white' : 'black',
 							}}
 						>
-							{user.first_name + ' ' + user.last_name}
+							{user.username}
 						</Text>
 						<Text style={{ color: theme === 'dark' ? '#cecece' : 'gray' }}>
 							11.00 AM
