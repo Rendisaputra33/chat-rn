@@ -40,7 +40,7 @@ const styled = StyleSheet.create({
 		backgroundColor: '#3777f0',
 	},
 	receiver: {
-		marginLeft: 10,
+		marginRight: 'auto',
 		borderTopEndRadius: 20,
 		borderTopStartRadius: 0,
 		backgroundColor: '#afafaf',
