@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
-import { ActivityIndicator, FlatList, StyleSheet, Text } from 'react-native';
-import { View } from '../components/Themed';
+import { ActivityIndicator, FlatList, StyleSheet } from 'react-native';
+import { View, Text } from '../components/Themed';
 import { RootTabScreenProps, UsersData } from '../types';
-import datas from '../constants/users';
 import CardFriend from '../components/CardFriends';
 import { useGetRequest } from '../hooks/useRequest';
 import io, { Socket } from 'socket.io-client';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function TabOneScreen({
 	navigation,
@@ -13,14 +13,39 @@ export default function TabOneScreen({
 	// make request
 	const { response, error } = useGetRequest<{ friends: UsersData[] }>('users');
 	let socket = useRef<Socket>();
+	const [auth, setAuth] = React.useState<any>({});
 	// make effect
 	React.useEffect(() => {
 		socket.current = io('http://192.168.1.3:7000');
+		AsyncStorage.getItem('@auth').then(res => {
+			const user = JSON.parse(res as string);
+			setAuth(user);
+			socket.current?.emit('add_user', user._id);
+		});
 	}, []);
 	// render element
 	return (
 		<View>
-			{!response && <ActivityIndicator color="blue" size="large" />}
+			{!response && (
+				<View
+					style={{
+						...styles.container,
+						width: '100%',
+						height: '100%',
+						flexDirection: 'column',
+					}}
+				>
+					<ActivityIndicator
+						style={{
+							flex: 1,
+							justifyContent: 'center',
+							alignItems: 'center',
+						}}
+						color="blue"
+						size="large"
+					/>
+				</View>
+			)}
 			{error !== null && (
 				<View>
 					<Text>error</Text>
@@ -33,7 +58,11 @@ export default function TabOneScreen({
 					renderItem={data => (
 						<CardFriend
 							onSelected={() =>
-								navigation.navigate('ChatRoom', { user: data.item })
+								navigation.navigate('ChatRoom', {
+									user: data.item,
+									socket: socket.current,
+									current: auth,
+								})
 							}
 							key={data.item._id}
 							user={data.item}

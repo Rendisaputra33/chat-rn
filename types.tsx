@@ -9,6 +9,7 @@ import {
 	NavigatorScreenParams,
 } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { Socket } from 'socket.io-client';
 
 declare global {
 	namespace ReactNavigation {
@@ -17,7 +18,9 @@ declare global {
 }
 
 export type RootStackParamList = {
-	Root: NavigatorScreenParams<RootTabParamList> | undefined;
+	Index: NavigatorScreenParams<RootTabParamList> | undefined;
+	Root: undefined;
+	Login: undefined;
 	Modal: undefined;
 	ChatRoom: {
 		user: {
@@ -25,6 +28,8 @@ export type RootStackParamList = {
 			password: string;
 			_id: string;
 		};
+		current: any;
+		socket?: Socket;
 	};
 	NotFound: undefined;
 };

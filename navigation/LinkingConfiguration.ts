@@ -13,7 +13,9 @@ const linking: LinkingOptions<RootStackParamList> = {
 	prefixes: [Linking.makeUrl('/')],
 	config: {
 		screens: {
-			Root: {
+			Root: 'index',
+			Login: 'login',
+			Index: {
 				screens: {
 					TabOne: {
 						screens: {

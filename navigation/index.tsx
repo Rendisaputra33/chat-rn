@@ -17,6 +17,8 @@ import { ColorSchemeName, Pressable } from 'react-native';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ChatRoom from '../screens/ChatRoom';
+import IndexScreen from '../screens/IndexScreen';
+import LoginScreen from '../screens/LoginScreen';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/TabOneScreen';
@@ -54,17 +56,29 @@ function RootNavigator() {
 		<Stack.Navigator>
 			<Stack.Screen
 				name="Root"
+				component={IndexScreen}
+				options={{ headerShown: false }}
+			/>
+			<Stack.Screen
+				name="Login"
+				component={LoginScreen}
+				options={{ headerShown: false }}
+			/>
+			<Stack.Screen
+				name="Index"
 				component={BottomTabNavigator}
-				options={{
-					headerShown: false,
-				}}
+				options={{ headerShown: false }}
 			/>
 			<Stack.Screen
 				name="NotFound"
 				component={NotFoundScreen}
 				options={{ title: 'Oops!' }}
 			/>
-			<Stack.Group screenOptions={{ presentation: 'modal' }}>
+			<Stack.Group
+				screenOptions={{
+					presentation: 'modal',
+				}}
+			>
 				<Stack.Screen name="Modal" component={ModalScreen} />
 				<Stack.Screen
 					name="ChatRoom"

@@ -37,7 +37,12 @@ const CardFriend: React.FC<Extended> = ({ user, onSelected }) => {
 						>
 							{user.username}
 						</Text>
-						<Text style={{ color: theme === 'dark' ? '#cecece' : 'gray' }}>
+						<Text
+							style={{
+								color: theme === 'dark' ? '#cecece' : 'gray',
+								fontSize: 13,
+							}}
+						>
 							11.00 AM
 						</Text>
 					</View>
