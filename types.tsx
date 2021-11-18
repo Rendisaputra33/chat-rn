@@ -29,7 +29,7 @@ export type RootStackParamList = {
 			_id: string;
 		};
 		current: any;
-		socket?: Socket;
+		// socket?: Socket;
 	};
 	NotFound: undefined;
 };

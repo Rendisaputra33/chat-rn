@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { ActivityIndicator, FlatList, StyleSheet } from 'react-native';
 import { View, Text } from '../components/Themed';
 import { RootTabScreenProps, UsersData } from '../types';
@@ -6,6 +6,8 @@ import CardFriend from '../components/CardFriends';
 import { useGetRequest } from '../hooks/useRequest';
 import io, { Socket } from 'socket.io-client';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { SocketContext } from '../context/SocketContext';
+import { assignSocket } from '../context/SocketAction';
 
 export default function TabOneScreen({
 	navigation,
@@ -14,9 +16,13 @@ export default function TabOneScreen({
 	const { response, error } = useGetRequest<{ friends: UsersData[] }>('users');
 	let socket = useRef<Socket>();
 	const [auth, setAuth] = React.useState<any>({});
+	const { dispatch } = useContext(SocketContext);
 	// make effect
 	React.useEffect(() => {
+		// instance socket
 		socket.current = io('http://192.168.1.3:7000');
+		dispatch && dispatch(assignSocket(socket.current));
+		// set user
 		AsyncStorage.getItem('@auth').then(res => {
 			const user = JSON.parse(res as string);
 			setAuth(user);
@@ -60,7 +66,7 @@ export default function TabOneScreen({
 							onSelected={() =>
 								navigation.navigate('ChatRoom', {
 									user: data.item,
-									socket: socket.current,
+									// socket: socket.current,
 									current: auth,
 								})
 							}

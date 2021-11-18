@@ -4,17 +4,19 @@ import { StyleSheet } from 'react-native';
 
 interface Props {
 	isSender: boolean;
+	message: {
+		message: string;
+		createdAt: string;
+		updatedAt: string;
+	};
 }
 
-export default function Message({ isSender }: Props) {
+export default function Message({ isSender, message }: Props) {
 	return (
 		<View
 			style={[styled.container, isSender ? styled.sender : styled.receiver]}
 		>
-			<Text style={styled.message}>
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis veniam
-				provident suscipit nobis
-			</Text>
+			<Text style={styled.message}>{message.message}</Text>
 		</View>
 	);
 }
