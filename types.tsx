@@ -9,7 +9,6 @@ import {
 	NavigatorScreenParams,
 } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Socket } from 'socket.io-client';
 
 declare global {
 	namespace ReactNavigation {

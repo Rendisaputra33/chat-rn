@@ -20,7 +20,7 @@ export default function TabOneScreen({
 	// make effect
 	React.useEffect(() => {
 		// instance socket
-		socket.current = io('http://192.168.1.3:7000');
+		socket.current = io('http://192.168.1.183:7000');
 		dispatch && dispatch(assignSocket(socket.current));
 		// set user
 		AsyncStorage.getItem('@auth').then(res => {

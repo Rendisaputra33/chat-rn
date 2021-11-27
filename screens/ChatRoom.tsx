@@ -19,6 +19,7 @@ export default function ChatRoom({
 	const { response, error } = useGetRequest(
 		`chats?sender=${params.current._id}&receiver=${params.user._id}`
 	);
+	let viewref = React.createRef();
 
 	//
 	React.useEffect(() => {
@@ -51,7 +52,7 @@ export default function ChatRoom({
 	};
 	//
 	const saveChat = (data: any) => {
-		axios.post('192.168.1.3:7000/api/chats', data).then(res => {
+		axios.post('http://192.168.1.183:7000/api/chats', data).then(res => {
 			setChats(pre => [...pre, res.data.newChat]);
 		});
 	};
@@ -59,19 +60,23 @@ export default function ChatRoom({
 	return (
 		<View style={{ height: '100%', display: 'flex' }}>
 			{chats && (
-				<FlatList
-					style={{ marginBottom: 10 }}
-					data={chats}
-					renderItem={({ item, index }) => (
-						<Message
-							isSender={item.sender === params.current._id}
-							message={item}
-							key={index.toString()}
-						/>
-					)}
-					keyExtractor={item => Math.random().toString()}
-				/>
+				<>
+					<FlatList
+						style={{ marginBottom: 10 }}
+						data={chats}
+						ref={ref => ref?.scrollToEnd()}
+						renderItem={({ item, index }) => (
+							<Message
+								isSender={item.sender === params.current._id}
+								message={item}
+								key={index.toString()}
+							/>
+						)}
+						keyExtractor={item => Math.random().toString()}
+					/>
+				</>
 			)}
+			<View></View>
 			<MessageInput onInput={onInput} value={message} onSend={onSend} />
 		</View>
 	);

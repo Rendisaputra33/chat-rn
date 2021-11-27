@@ -13,7 +13,7 @@ export default function LoginScreen({
 
 	const handleSubmit = async () => {
 		if (username !== '' && password !== '') {
-			const data = await axios.post('http://192.168.1.3:7000/api/login', {
+			const data = await axios.post('http://192.168.1.183:7000/api/login', {
 				username,
 				password,
 			});

@@ -2,7 +2,7 @@ import React from 'react';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
 const req = axios.create({
-	baseURL: 'http://192.168.1.3:7000/api/',
+	baseURL: 'http://192.168.1.183:7000/api/',
 });
 
 export const useGetRequest = <T = any>(url: string) => {

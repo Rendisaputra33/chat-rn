@@ -130,7 +130,7 @@ function BottomTabNavigator() {
 							})}
 						>
 							<FontAwesome
-								name="info-circle"
+								name="search"
 								size={25}
 								color={Colors[colorScheme].text}
 								style={{ marginRight: 15 }}
